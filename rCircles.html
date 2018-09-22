@@ -1,28 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>Random Circles Project</title>
-    <script type="text/javascript" src="lib/paper-full.js"></script>
-    <link rel="stylesheet" type="text/css" href="rCircles.css">
-    <script type="text/paperscript" canvas="canvas"> 
-        
-        function onKeyDown(event) {
-            var maxPoint = new Point(view.size.width, view.size.height);
-            console.log(maxPoint);
-            new Path.Circle(maxPoint, 10).fillColor = "orange";
-            
+	<title>Circles</title>
+	<link rel="stylesheet" type="text/css" href="rCircles.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.10.3/paper-full.min.js"></script>
 
-        }
-       
-                    
+	<script type="text/paperscript" canvas="myCanvas">
 
-    </script>
-    
+	function onKeyDown(event) {
+		var maxPoint = new Point(view.size.width, view.size.height);
+		var randomPoint = Point.random();
+		var point = maxPoint * randomPoint;
+		new Path.Circle(point, 10).fillColor = "olive";
+	}
+
+	var animateCircle = new Path.Circle(new Point(300,300), 100);
+	animateCircle.fillColor = "red";
+
+	</script>
 </head>
 <body>
-    
-    <canvas id="canvas" resize></canvas>
-    <script type="text/javascript" src="rCircles.js"></script>
-    
+	<canvas id="myCanvas" resize></canvas>
+
 </body>
-</html>
+</html>    
